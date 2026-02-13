@@ -1,5 +1,5 @@
-<p align="center"># 🧠 GroupSync-Engage</p>
-</h1>
+# 🧠 GroupSync-Engage
+
 
 <p align="center">
 <b>A Research-Grade Platform for Multi-Brain Dynamics, Neural Synchronization, and Collective Intelligence</b>
@@ -23,6 +23,19 @@ Designed for computational neuroscientists, social cognition researchers, and ad
 ![JOSS](https://joss.theoj.org/papers/10.21105/joss.01234/status.svg)
 
 </p>
+
+## Author
+
+**Marlon D. Bulaquena**  
+Research Affiliate  
+Department of Brain and Cognitive Sciences  
+:contentReference[oaicite:0]{index=0}  
+43 Vassar Street  
+Cambridge, MA 02139  
+United States  
+
+📧 Email: marlon.bulaquena@mit.edu  
+🌐 ORCID: https://ORCID.ORG/0009-0007-3966-0494   
 
 ---
 
