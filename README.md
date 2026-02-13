@@ -19,7 +19,7 @@ Designed for computational neuroscientists, social cognition researchers, and ad
 ![Build](https://img.shields.io/badge/build-passing-brightgreen)
 ![Tests](https://img.shields.io/badge/tests-%3E90%25-success)
 ![Docs](https://img.shields.io/badge/docs-Sphinx-blue)
-![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14725836.svg)
+[![DOI](https://zenodo.org/badge/1156977219.svg)](https://doi.org/10.5281/zenodo.18634449)
 ![JOSS](https://joss.theoj.org/papers/10.21105/joss.01234/status.svg)
 
 </p>
