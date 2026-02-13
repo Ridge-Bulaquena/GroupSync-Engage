@@ -104,24 +104,48 @@ The platform is designed for scalability — handling lab-scale hyperscanning st
 
 ## Introduction
 
-Human social interaction is a complex, dynamic process that unfolds across multiple brains and timescales. The emerging field of **hyperscanning** — simultaneous recording of neural activity from multiple individuals — has revealed that interpersonal neural synchrony correlates with cooperation [1], communication quality [2], and even therapeutic alliance [3]. Yet, the computational tools to analyze such multi-brain data remain fragmented, often lacking standardization, scalability, and reproducibility.
+Science advances when we discover that phenomena once thought separate are governed by the same hidden principles. Just as thermodynamics unified heat and motion, and electromagnetism merged electricity with magnetism, the modern study of intelligence increasingly suggests that cognition is not solely an individual property — it is often a collective dynamical process.
 
-Existing software solutions either focus on single-brain analysis (e.g., MNE-Python, EEGLAB) or provide limited support for group-level synchrony metrics (e.g., SPM, FieldTrip). Moreover, they rarely integrate modern machine-learning techniques for predictive modeling, nor do they offer real-time streaming capabilities essential for closed-loop experiments.
+When humans interact, their brains do not operate as isolated machines. Instead, they exhibit measurable coordination across time — a phenomenon broadly referred to as neural synchrony. The central premise of this work is simple but powerful:
 
-To address these gaps, we introduce **GroupSync-Engage** — a unified platform that combines:
+Intelligence scales through synchronization.
 
-- Multi-modal data ingestion from EEG, fNIRS, motion capture, audio, and video sources.  
-- A comprehensive library of neural synchrony metrics grounded in peer-reviewed methodologies.  
-- Graph-theoretic modeling of dynamic functional networks between and within brains.  
-- State-of-the-art machine learning (Graph Neural Networks, Transformers) to predict behavioral outcomes from synchrony patterns.  
-- Real-time streaming pipelines using Apache Kafka for live hyperscanning experiments.  
-- Reproducible workflows with containerization, experiment tracking, and automated testing.  
+This repository introduces a computational platform designed to measure, model, and predict cross-brain dynamics in interacting groups.
 
-GroupSync-Engage is designed for neuroscientists, social psychologists, and computational researchers who seek to investigate the neural basis of human interaction with methodological rigor and computational efficiency.
+We treat each brain as a dynamical system and the group as an emergent network whose properties cannot be reduced to any single participant.
+
+Formally, let the neural state of agent 𝑖 at time 𝑡 be:
+x_i(t) ∈ ℝ^d
+The collective system becomes:
+X(t) = {x_1(t), x_2(t), ..., x_n(t)}
+Our task is therefore not merely signal analysis — it is the physics of coupled cognitive systems.
 
 ---
 
 ## Background and Related Work
+
+
+
+The intuition that minds align during interaction has deep roots in neuroscience and physics.
+
+Early hyperscanning studies demonstrated inter-brain phase locking during cooperation:
+
+Uri Hasson showed that shared narratives produce temporally aligned cortical activity.
+
+Andreas K. Engel connected synchronization to large-scale neural integration.
+
+Mathematically, synchrony resembles the behavior of coupled oscillators described by the Kuramoto model:
+
+dθ_i/dt = ω_i + (K/N) Σ_j sin(θ_j − θ_i)
+
+Where:
+
+𝜃𝑖 is the phase
+𝜔𝑖 is the natural frequency
+𝐾K is coupling strength
+When 𝐾K crosses a critical threshold, the system undergoes a phase transition from disorder to coherence — a pattern seen throughout nature.
+
+Similarly, predictive brain theories suggest cognition minimizes surprise:
 
 ### Neural Synchrony Metrics
 Quantifying phase synchronization between neural signals dates back to Lachaux et al. [4], who introduced the Phase-Locking Value (PLV). Subsequent developments addressed volume conduction effects (e.g., weighted Phase Lag Index, wPLI [5]) and amplitude correlations (e.g., Amplitude Envelope Correlation, AEC [6]). Granger causality [7] and transfer entropy [8] provide directed connectivity measures.
@@ -172,28 +196,7 @@ All components communicate via **Apache Kafka** for real-time data streams and *
 
 ---
 
-# 🧭 Animated Table of Contents
 
-<details>
-<summary>Expand Navigation</summary>
-
-- Overview  
-- Architecture  
-- Core Modules  
-- Benchmarks  
-- Quick Start  
-- Deployment  
-- Scientific Validation  
-- Reproducibility  
-- Roadmap  
-- Contributing  
-- Acknowledgment  
-- References  
-- Citation  
-
-</details>
-
----
 
 # 🏗 System Architecture
     
