@@ -72,6 +72,92 @@ GroupSync-Engage was built to serve as a **foundational platform** for:
 
 ---
 
+## Abstract
+
+**GroupSync-Engage** is an open-source, research-grade software framework for analyzing multi-person neural and behavioral data to quantify group dynamics, social interaction, and collective cognition. It provides a fully modular pipeline from raw signal ingestion (EEG, fNIRS, MoCap, audio, video) through synchrony estimation (Phase-Locking Value, coherence, weighted Phase Lag Index, Granger causality, transfer entropy) to advanced graph-theoretic and machine-learning models (Graph Neural Networks, spatio-temporal transformers) that predict emergent group states (e.g., cohesion, performance, engagement).
+
+The platform is designed for scalability — handling lab-scale hyperscanning studies to large-scale streaming deployments — and for reproducibility, with comprehensive testing, experiment tracking, and containerized execution. By integrating cutting-edge computational methods with rigorous statistical validation, GroupSync-Engage aims to accelerate discoveries about how brains synchronize during cooperation, competition, learning, and therapy.
+
+---
+
+## Table of Contents
+
+- Introduction  
+- Background and Related Work  
+- System Architecture  
+- Core Modules  
+  - Data Ingestion  
+  - Preprocessing  
+  - Synchrony Analysis  
+  - Network Modeling  
+  - Machine Learning  
+  - Real-Time Streaming  
+  - Visualization  
+- Validation and Benchmarks  
+- Reproducibility and Deployment  
+- Conclusion and Future Directions  
+- Acknowledgments  
+- References  
+- Citation  
+
+---
+
+## Introduction
+
+Human social interaction is a complex, dynamic process that unfolds across multiple brains and timescales. The emerging field of **hyperscanning** — simultaneous recording of neural activity from multiple individuals — has revealed that interpersonal neural synchrony correlates with cooperation [1], communication quality [2], and even therapeutic alliance [3]. Yet, the computational tools to analyze such multi-brain data remain fragmented, often lacking standardization, scalability, and reproducibility.
+
+Existing software solutions either focus on single-brain analysis (e.g., MNE-Python, EEGLAB) or provide limited support for group-level synchrony metrics (e.g., SPM, FieldTrip). Moreover, they rarely integrate modern machine-learning techniques for predictive modeling, nor do they offer real-time streaming capabilities essential for closed-loop experiments.
+
+To address these gaps, we introduce **GroupSync-Engage** — a unified platform that combines:
+
+- Multi-modal data ingestion from EEG, fNIRS, motion capture, audio, and video sources.  
+- A comprehensive library of neural synchrony metrics grounded in peer-reviewed methodologies.  
+- Graph-theoretic modeling of dynamic functional networks between and within brains.  
+- State-of-the-art machine learning (Graph Neural Networks, Transformers) to predict behavioral outcomes from synchrony patterns.  
+- Real-time streaming pipelines using Apache Kafka for live hyperscanning experiments.  
+- Reproducible workflows with containerization, experiment tracking, and automated testing.  
+
+GroupSync-Engage is designed for neuroscientists, social psychologists, and computational researchers who seek to investigate the neural basis of human interaction with methodological rigor and computational efficiency.
+
+---
+
+## Background and Related Work
+
+### Neural Synchrony Metrics
+Quantifying phase synchronization between neural signals dates back to Lachaux et al. [4], who introduced the Phase-Locking Value (PLV). Subsequent developments addressed volume conduction effects (e.g., weighted Phase Lag Index, wPLI [5]) and amplitude correlations (e.g., Amplitude Envelope Correlation, AEC [6]). Granger causality [7] and transfer entropy [8] provide directed connectivity measures.
+
+GroupSync-Engage implements all these metrics in a unified, well-tested framework.
+
+### Graph Theory in Neuroscience
+Functional brain networks are commonly modeled as graphs where nodes are brain regions (or sensors) and edges represent synchrony strength. Metrics such as clustering coefficient, modularity, and efficiency capture network topology [9]. Temporal network analysis [10] extends this to dynamic connectivity.
+
+Our platform includes a dedicated module for graph construction, metric computation, and temporal evolution analysis.
+
+### Machine Learning for Hyperscanning
+Recent studies have employed deep learning to decode social interactions from hyperscanning data. Graph Neural Networks (GNNs) are particularly suited because they operate directly on graph-structured data [11,12].
+
+GroupSync-Engage provides GNN models (GCN, GAT, GraphSAGE) tailored for group-level predictions, as well as spatio-temporal transformers [13] for forecasting synchrony dynamics.
+
+### Existing Platforms
+To our knowledge, no existing open-source tool offers the breadth of features combined in GroupSync-Engage. MNE-Python [14] is excellent for single-subject EEG but lacks built-in hyperscanning and streaming. EEGLAB [15] and FieldTrip [16] provide extensive preprocessing but are MATLAB-based and less amenable to integration with modern ML pipelines. Commercial solutions are proprietary and not extensible.
+
+**GroupSync-Engage fills this niche** by providing a Python-native, modular, and scalable ecosystem.
+
+---
+
+## System Architecture
+
+GroupSync-Engage follows a microservices-oriented architecture designed for scalability and flexibility. The system comprises five primary layers:
+
+- **Ingestion Layer:** Handles streaming and batch data from multiple modalities using pluggable readers (EDF, BrainVision, SNIRF, LSL, etc.).  
+- **Processing Layer:** Implements signal preprocessing, synchrony computation, and graph construction. Scalable with Ray or Dask.  
+- **Machine Learning Layer:** Provides model training, inference, and interpretability modules.  
+- **API Layer:** Exposes RESTful endpoints via FastAPI for client applications.  
+- **Visualization Layer:** Renders interactive 3D brain models, synchrony matrices, and network graphs using React/Three.js.  
+
+All components communicate via **Apache Kafka** for real-time data streams and **PostgreSQL** for metadata persistence. Experiment tracking is managed with **MLFlow**, and configuration is handled by **Hydra**.
+
+
 # 🔥 Key Capabilities
 
 ✔ Research-grade signal processing  
