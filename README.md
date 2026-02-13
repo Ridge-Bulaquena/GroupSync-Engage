@@ -1,4 +1,4 @@
-🧠 GroupSync-Engage
+<p align="center"># 🧠 GroupSync-Engage</p>
 </h1>
 
 <p align="center">
