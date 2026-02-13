@@ -1,7 +1,3 @@
-<!-- ========================================================= -->
-<!-- HERO -->
-<!-- ========================================================= -->
-
 <p align="center">
   <img src="docs/assets/groupsync-banner.png" width="100%" alt="GroupSync Engage Banner"/>
 </p>
