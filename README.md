@@ -226,18 +226,15 @@ Includes interpretability via SHAP and GraphGradCAM.
 
 # 🚀 Quick Start
 
-```bash
 git clone https://github.com/yourlab/groupsync-engage
 cd groupsync-engage
 
 pip install -e ".[dev]"
-
 docker-compose up -d postgres kafka redis
-
 python examples/01_basic_plv_analysis.py
 
 
-🔬 Scientific Philosophy
+# 🔬 Scientific Philosophy
 
 GroupSync-Engage is guided by three principles:
 Reproducibility First
