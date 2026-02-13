@@ -26,10 +26,10 @@ Designed for computational neuroscientists, social cognition researchers, and ad
 
 ## Author
 
-**Marlon D. Bulaquena**  
+**Marlon D. Bulaquena**
+
 Research Affiliate  
 Department of Brain and Cognitive Sciences  
-:contentReference[oaicite:0]{index=0}  
 43 Vassar Street  
 Cambridge, MA 02139  
 United States  
