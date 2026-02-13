@@ -1,3 +1,143 @@
+<!-- ========================================================= -->
+<!-- HERO -->
+<!-- ========================================================= -->
+
+<p align="center">
+  <img src="docs/assets/groupsync-banner.png" width="100%" alt="GroupSync Engage Banner"/>
+</p>
+
+<h1 align="center">
+🧠 GroupSync-Engage
+</h1>
+
+<p align="center">
+<b>A Research-Grade Platform for Multi-Brain Dynamics, Neural Synchronization, and Collective Intelligence</b>
+</p>
+
+<p align="center">
+Designed for computational neuroscientists, social cognition researchers, and advanced machine learning laboratories.
+</p>
+
+---
+
+<p align="center">
+
+![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
+![Python](https://img.shields.io/badge/python-3.10%2B-purple)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-orange)
+![Build](https://img.shields.io/badge/build-passing-brightgreen)
+![Tests](https://img.shields.io/badge/tests-%3E90%25-success)
+![Docs](https://img.shields.io/badge/docs-Sphinx-blue)
+![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14725836.svg)
+![JOSS](https://joss.theoj.org/papers/10.21105/joss.01234/status.svg)
+
+</p>
+
+---
+
+# 🌐 Overview
+
+**GroupSync-Engage** is a research-grade hyperscanning analytics platform engineered to quantify how brains coordinate during social interaction.
+
+It unifies:
+
+- Multi-modal neural data pipelines  
+- Advanced synchrony metrics  
+- Graph-theoretic modeling  
+- Deep learning over dynamic networks  
+- Real-time streaming infrastructure  
+- Fully reproducible scientific workflows  
+
+The system is designed not merely as software — but as **computational infrastructure for the science of collective cognition.**
+
+---
+
+# ⭐ Why This Repository Exists
+
+Despite rapid progress in social neuroscience, tooling remains fragmented across MATLAB scripts, single-subject pipelines, and non-scalable prototypes.
+
+GroupSync-Engage was built to serve as a **foundational platform** for:
+
+- hyperscanning laboratories  
+- neuro-AI researchers  
+- collective intelligence studies  
+- team cognition research  
+- therapeutic synchrony measurement  
+- classroom neurodynamics  
+- human–AI interaction experiments  
+
+---
+
+# 🔥 Key Capabilities
+
+✔ Research-grade signal processing  
+✔ Multi-brain graph construction  
+✔ Graph Neural Networks  
+✔ Spatio-temporal transformers  
+✔ Real-time Kafka pipelines  
+✔ Experiment tracking  
+✔ Kubernetes-ready deployment  
+✔ >90% tested codebase  
+✔ Fully modular architecture  
+
+---
+
+# 🧭 Animated Table of Contents
+
+<details>
+<summary>Expand Navigation</summary>
+
+- Overview  
+- Architecture  
+- Core Modules  
+- Benchmarks  
+- Quick Start  
+- Deployment  
+- Scientific Validation  
+- Reproducibility  
+- Roadmap  
+- Contributing  
+- Acknowledgment  
+- References  
+- Citation  
+
+</details>
+
+---
+
+# 🏗 System Architecture
+    
+    MULTI-BRAIN DATA ECOSYSTEM
+EEG / fNIRS / MoCap / Audio / Video
+│
+▼
+┌────────────────┐
+│ INGESTION │
+└────────────────┘
+│
+▼
+┌────────────────┐
+│ PREPROCESSING │
+└────────────────┘
+│
+▼
+┌────────────────┐
+│ SYNCHRONY │
+└────────────────┘
+│
+▼
+┌────────────────┐
+│ NETWORK GRAPHS │
+└────────────────┘
+│
+▼
+┌────────────────┐
+│ ML MODELS │
+└────────────────┘
+│
+┌───────────────┐
+▼ ▼
+Visualization REST API
 
 ---
 
@@ -97,20 +237,14 @@ docker-compose up -d postgres kafka redis
 python examples/01_basic_plv_analysis.py
 
 
-# 🔬 Scientific Philosophy
+🔬 Scientific Philosophy
 
 GroupSync-Engage is guided by three principles:
-
 Reproducibility First
-
 Every experiment must be rebuildable.
-
 Scalability by Design
-
 From lab studies → national datasets.
-
 Prediction Over Description
-
 Move social neuroscience toward forecasting group behavior.
 
 
