@@ -1,0 +1,460 @@
+
+import { FileNode } from '../types';
+
+export const repositorySchema: FileNode[] = [
+  { name: 'README.md', type: 'file', description: 'Scholarly overview, citation instructions, and project status badges.' },
+  { name: 'LICENSE', type: 'file', description: 'Apache License 2.0 - Open Source scholarly distribution.' },
+  { name: 'CITATION.cff', type: 'file', description: 'Metadata for citing this software in academic journals and Zenodo.' },
+  { name: 'pyproject.toml', type: 'file', description: 'Modern Python build system (PEP 621) and dependency management.' },
+  { name: 'setup.py', type: 'file', description: 'Legacy installation script for backward compatibility.' },
+  { name: 'requirements.txt', type: 'file', description: 'Pinned core dependencies for reproducible research environments.' },
+  { name: 'requirements-dev.txt', type: 'file', description: 'Developer tools: pytest, black, mypy, sphinx.' },
+  { name: '.gitignore', type: 'file', description: 'Excludes compiled artifacts and large raw data files.' },
+  { name: '.dockerignore', type: 'file', description: 'Excludes unnecessary files from Docker build context.' },
+  { name: '.pre-commit-config.yaml', type: 'file', description: 'Hooks for ensuring code quality (linting, formatting) before push.' },
+  { name: 'Makefile', type: 'file', description: 'Shortcuts for lint, test, docker-build, and documentation generation.' },
+  {
+    name: 'docs',
+    type: 'folder',
+    children: [
+      { name: 'index.md', type: 'file' },
+      { name: 'installation.md', type: 'file' },
+      { name: 'quickstart.md', type: 'file' },
+      {
+        name: 'tutorials',
+        type: 'folder',
+        children: [
+          { name: 'eeg_preprocessing.ipynb', type: 'file' },
+          { name: 'hyperscanning_plv.ipynb', type: 'file' },
+          { name: 'gnns_for_synchrony.ipynb', type: 'file' },
+        ],
+      },
+      {
+        name: 'api_reference',
+        type: 'folder',
+        children: [
+          { name: 'core.rst', type: 'file' },
+          { name: 'synchrony.rst', type: 'file' },
+          { name: 'network.rst', type: 'file' },
+          { name: 'ml.rst', type: 'file' },
+          { name: 'visualization.rst', type: 'file' },
+        ],
+      },
+      {
+        name: 'developer_guide',
+        type: 'folder',
+        children: [
+          { name: 'architecture.md', type: 'file' },
+          { name: 'contributing.md', type: 'file' },
+          { name: 'testing.md', type: 'file' },
+        ],
+      },
+      {
+        name: '_static',
+        type: 'folder',
+        children: [
+          { name: 'system_diagram.svg', type: 'file' },
+          { name: 'logo.png', type: 'file' },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'src',
+    type: 'folder',
+    children: [
+      {
+        name: 'groupsync',
+        type: 'folder',
+        children: [
+          { name: '__init__.py', type: 'file' },
+          { name: 'version.py', type: 'file' },
+          {
+            name: 'core',
+            type: 'folder',
+            children: [
+              { name: '__init__.py', type: 'file' },
+              { name: 'dataset.py', type: 'file', description: 'GroupDataset, SyncDataLoader implementations.' },
+              { name: 'signal.py', type: 'file', description: 'Signal handling for multi-channel time series.' },
+              { name: 'group.py', type: 'file', description: 'Group, Session, and Participant abstractions.' },
+              { name: 'metadata.py', type: 'file', description: 'Subject metadata and event marking logic.' },
+              { name: 'exceptions.py', type: 'file' },
+            ],
+          },
+          {
+            name: 'ingestion',
+            type: 'folder',
+            children: [
+              { name: '__init__.py', type: 'file' },
+              { name: 'base.py', type: 'file' },
+              { name: 'eeg.py', type: 'file', description: 'Support for EDF, BDF, BrainVision formats.' },
+              { name: 'fnirs.py', type: 'file' },
+              { name: 'motion.py', type: 'file' },
+              { name: 'audio.py', type: 'file' },
+              { name: 'video.py', type: 'file' },
+              { name: 'streaming.py', type: 'file', description: 'LSL (Lab Streaming Layer) integration.' },
+              { name: 'converters.py', type: 'file' },
+            ],
+          },
+          {
+            name: 'preprocessing',
+            type: 'folder',
+            children: [
+              { name: '__init__.py', type: 'file' },
+              { name: 'filters.py', type: 'file' },
+              { name: 'artifact.py', type: 'file', description: 'ICA, SSP, ASR, and FASTER algorithms.' },
+              { name: 'resample.py', type: 'file' },
+              { name: 'epoching.py', type: 'file' },
+              { name: 'reference.py', type: 'file' },
+              { name: 'bad_channels.py', type: 'file' },
+              { name: 'pipeline.py', type: 'file' },
+            ],
+          },
+          {
+            name: 'synchrony',
+            type: 'folder',
+            children: [
+              { name: '__init__.py', type: 'file' },
+              { name: 'plv.py', type: 'file', description: 'Phase-Locking Value (Lachaux 1999).' },
+              { name: 'coherence.py', type: 'file' },
+              { name: 'correlation.py', type: 'file' },
+              { name: 'granger.py', type: 'file' },
+              { name: 'mi.py', type: 'file' },
+              { name: 'wpli.py', type: 'file', description: 'Weighted Phase Lag Index (Vinck 2011).' },
+              { name: 'aec.py', type: 'file', description: 'Amplitude Envelope Correlation.' },
+              { name: 'hyperscanning.py', type: 'file' },
+              { name: 'group_level.py', type: 'file' },
+              { name: 'stats.py', type: 'file' },
+            ],
+          },
+          {
+            name: 'network',
+            type: 'folder',
+            children: [
+              { name: '__init__.py', type: 'file' },
+              { name: 'graph_builder.py', type: 'file' },
+              { name: 'measures.py', type: 'file', description: 'Efficiency, clustering, and modularity.' },
+              { name: 'dynamics.py', type: 'file' },
+              { name: 'centrality.py', type: 'file' },
+              { name: 'community.py', type: 'file' },
+              { name: 'motifs.py', type: 'file' },
+              { name: 'criticality.py', type: 'file' },
+              { name: 'evolution.py', type: 'file' },
+            ],
+          },
+          {
+            name: 'ml',
+            type: 'folder',
+            children: [
+              { name: '__init__.py', type: 'file' },
+              {
+                name: 'features',
+                type: 'folder',
+                children: [
+                  { name: 'spectral.py', type: 'file' },
+                  { name: 'connectivity.py', type: 'file' },
+                  { name: 'topological.py', type: 'file' },
+                  { name: 'temporal.py', type: 'file' },
+                ],
+              },
+              {
+                name: 'models',
+                type: 'folder',
+                children: [
+                  { name: 'baselines.py', type: 'file' },
+                  { name: 'gnn.py', type: 'file', description: 'Graph Neural Networks (PyG).' },
+                  { name: 'stgnn.py', type: 'file' },
+                  { name: 'transformer.py', type: 'file' },
+                  { name: 'vae.py', type: 'file' },
+                ],
+              },
+              {
+                name: 'training',
+                type: 'folder',
+                children: [
+                  { name: 'trainer.py', type: 'file' },
+                  { name: 'metrics.py', type: 'file' },
+                  { name: 'callbacks.py', type: 'file' },
+                ],
+              },
+              {
+                name: 'interpret',
+                type: 'folder',
+                children: [
+                  { name: 'shap.py', type: 'file' },
+                  { name: 'gradcam.py', type: 'file' },
+                  { name: 'ablation.py', type: 'file' },
+                ],
+              },
+              { name: 'hyperopt.py', type: 'file' },
+            ],
+          },
+          {
+            name: 'streaming',
+            type: 'folder',
+            children: [
+              { name: '__init__.py', type: 'file' },
+              { name: 'producer.py', type: 'file' },
+              { name: 'consumer.py', type: 'file' },
+              { name: 'processor.py', type: 'file' },
+              { name: 'serializer.py', type: 'file' },
+            ],
+          },
+          {
+            name: 'distributed',
+            type: 'folder',
+            children: [
+              { name: '__init__.py', type: 'file' },
+              { name: 'ray_cluster.py', type: 'file' },
+              { name: 'dask_scheduler.py', type: 'file' },
+              { name: 'kubernetes.py', type: 'file' },
+              { name: 'task_graph.py', type: 'file' },
+            ],
+          },
+          {
+            name: 'api',
+            type: 'folder',
+            children: [
+              { name: '__init__.py', type: 'file' },
+              { name: 'main.py', type: 'file' },
+              { name: 'dependencies.py', type: 'file' },
+              {
+                name: 'routers',
+                type: 'folder',
+                children: [
+                  { name: 'sessions.py', type: 'file' },
+                  { name: 'analyses.py', type: 'file' },
+                  { name: 'predictions.py', type: 'file' },
+                  { name: 'visualizations.py', type: 'file' },
+                ],
+              },
+              { name: 'schemas.py', type: 'file' },
+              { name: 'database.py', type: 'file' },
+              { name: 'auth.py', type: 'file' },
+            ],
+          },
+          {
+            name: 'visualization',
+            type: 'folder',
+            children: [
+              { name: '__init__.py', type: 'file' },
+              { name: 'plots.py', type: 'file' },
+              { name: 'interactive.py', type: 'file' },
+              { name: 'webgl.py', type: 'file' },
+              {
+                name: 'dashboards',
+                type: 'folder',
+                children: [
+                  { name: 'live_dashboard.py', type: 'file' },
+                  { name: 'report_generator.py', type: 'file' },
+                ],
+              },
+              { name: 'colormaps.py', type: 'file' },
+            ],
+          },
+          {
+            name: 'experiment_tracking',
+            type: 'folder',
+            children: [
+              { name: '__init__.py', type: 'file' },
+              { name: 'mlflow_logger.py', type: 'file' },
+              { name: 'wandb_logger.py', type: 'file' },
+              { name: 'config_manager.py', type: 'file' },
+              { name: 'registry.py', type: 'file' },
+            ],
+          },
+          {
+            name: 'utils',
+            type: 'folder',
+            children: [
+              { name: '__init__.py', type: 'file' },
+              { name: 'logger.py', type: 'file' },
+              { name: 'io.py', type: 'file' },
+              { name: 'parallel.py', type: 'file' },
+              { name: 'decorators.py', type: 'file' },
+              { name: 'validation.py', type: 'file' },
+              { name: 'git_hash.py', type: 'file' },
+            ],
+          },
+          {
+            name: 'config',
+            type: 'folder',
+            children: [
+              { name: '__init__.py', type: 'file' },
+              { name: 'defaults.yaml', type: 'file' },
+              { name: 'logging.yaml', type: 'file' },
+              { name: 'database.yaml', type: 'file' },
+              { name: 'kafka.yaml', type: 'file' },
+              { name: 'model_registry.yaml', type: 'file' },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'tests',
+    type: 'folder',
+    children: [
+      { name: '__init__.py', type: 'file' },
+      { name: 'conftest.py', type: 'file' },
+      {
+        name: 'unit',
+        type: 'folder',
+        children: [
+          { name: 'core', type: 'folder', children: [] },
+          { name: 'synchrony', type: 'folder', children: [] },
+          { name: 'network', type: 'folder', children: [] },
+          { name: 'ml', type: 'folder', children: [] },
+        ],
+      },
+      {
+        name: 'integration',
+        type: 'folder',
+        children: [
+          { name: 'test_ingestion_pipeline.py', type: 'file' },
+          { name: 'test_synchrony_to_graph.py', type: 'file' },
+          { name: 'test_api_endpoints.py', type: 'file' },
+        ],
+      },
+      {
+        name: 'performance',
+        type: 'folder',
+        children: [{ name: 'test_throughput.py', type: 'file' }],
+      },
+      {
+        name: 'fixtures',
+        type: 'folder',
+        children: [
+          { name: 'sample_eeg.edf', type: 'file' },
+          { name: 'sample_group_metadata.csv', type: 'file' },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'examples',
+    type: 'folder',
+    children: [
+      { name: '01_basic_plv_analysis.py', type: 'file' },
+      { name: '02_hyperscanning_pipeline.py', type: 'file' },
+      { name: '03_graph_measures.py', type: 'file' },
+      { name: '04_gnn_group_cohesion.py', type: 'file' },
+      { name: '05_realtime_kafka_demo.py', type: 'file' },
+      { name: '06_ray_distributed_synchrony.py', type: 'file' },
+      {
+        name: 'data',
+        type: 'folder',
+        children: [
+          { name: 'hyperscanning_eeg', type: 'folder', children: [] },
+          { name: 'fnirs_team_communication', type: 'folder', children: [] },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'scripts',
+    type: 'folder',
+    children: [
+      { name: 'download_test_data.py', type: 'file' },
+      { name: 'generate_synthetic_eeg.py', type: 'file' },
+      { name: 'train_model.py', type: 'file' },
+      { name: 'evaluate_model.py', type: 'file' },
+      { name: 'launch_api.sh', type: 'file' },
+      { name: 'deploy_k8s.sh', type: 'file' },
+    ],
+  },
+  {
+    name: 'docker',
+    type: 'folder',
+    children: [
+      { name: 'Dockerfile.api', type: 'file' },
+      { name: 'Dockerfile.worker', type: 'file' },
+      { name: 'Dockerfile.frontend', type: 'file' },
+      { name: 'docker-compose.yml', type: 'file' },
+      { name: '.dockerignore', type: 'file' },
+    ],
+  },
+  {
+    name: 'k8s',
+    type: 'folder',
+    children: [
+      { name: 'namespace.yaml', type: 'file' },
+      { name: 'configmap.yaml', type: 'file' },
+      { name: 'secrets.yaml.example', type: 'file' },
+      { name: 'postgres-statefulset.yaml', type: 'file' },
+      { name: 'kafka-cluster.yaml', type: 'file' },
+      { name: 'api-deployment.yaml', type: 'file' },
+      { name: 'worker-deployment.yaml', type: 'file' },
+      { name: 'frontend-deployment.yaml', type: 'file' },
+      { name: 'ray-cluster.yaml', type: 'file' },
+      { name: 'ingress.yaml', type: 'file' },
+    ],
+  },
+  {
+    name: 'frontend',
+    type: 'folder',
+    children: [
+      { name: 'package.json', type: 'file' },
+      { name: 'tsconfig.json', type: 'file' },
+      { name: 'public', type: 'folder', children: [] },
+      {
+        name: 'src',
+        type: 'folder',
+        children: [
+          {
+            name: 'components',
+            type: 'folder',
+            children: [
+              { name: 'BrainViewer.tsx', type: 'file' },
+              { name: 'SynchronyMatrix.tsx', type: 'file' },
+              { name: 'NetworkGraph.tsx', type: 'file' },
+              { name: 'Dashboard.tsx', type: 'file' },
+            ],
+          },
+          { name: 'api', type: 'folder', children: [{ name: 'client.ts', type: 'file' }] },
+          { name: 'store', type: 'folder', children: [] },
+          { name: 'App.tsx', type: 'file' },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'data',
+    type: 'folder',
+    children: [{ name: 'README.md', type: 'file' }],
+  },
+  {
+    name: 'notebooks',
+    type: 'folder',
+    children: [
+      { name: 'eda_group_synchrony.ipynb', type: 'file' },
+      { name: 'benchmarking_gnn.ipynb', type: 'file' },
+    ],
+  },
+  {
+    name: '.github',
+    type: 'folder',
+    children: [
+      {
+        name: 'workflows',
+        type: 'folder',
+        children: [
+          { name: 'ci.yml', type: 'file' },
+          { name: 'cd.yml', type: 'file' },
+          { name: 'docs.yml', type: 'file' },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'configs',
+    type: 'folder',
+    children: [
+      { name: 'preprocessing', type: 'folder', children: [] },
+      { name: 'synchrony', type: 'folder', children: [] },
+      { name: 'network', type: 'folder', children: [] },
+      { name: 'ml', type: 'folder', children: [] },
+    ],
+  },
+];

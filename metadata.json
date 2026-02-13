@@ -1,0 +1,7 @@
+{
+  "name": "GroupSync-Engage",
+  "description": "Research-grade computational neuroscience platform for group behavior analysis using neural synchronization and graph dynamics.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
